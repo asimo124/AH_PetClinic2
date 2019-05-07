@@ -8,8 +8,7 @@ import java.util.Set;
 @Table(name = "specialties")
 public class Specialty extends BaseEntity {
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(joinColumns = @JoinColumn(name = "specialty_id"))
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "specialties")
     private Set<Vet> vets = new HashSet<>();
 
     @Column(name = "description")
