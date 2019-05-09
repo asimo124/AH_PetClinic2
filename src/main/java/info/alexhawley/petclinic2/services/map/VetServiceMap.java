@@ -4,7 +4,6 @@ import info.alexhawley.petclinic2.model.Specialty;
 import info.alexhawley.petclinic2.model.Vet;
 import info.alexhawley.petclinic2.services.SpecialtyService;
 import info.alexhawley.petclinic2.services.VetService;
-import org.springframework.boot.web.context.ServerPortInfoApplicationContextInitializer;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -13,7 +12,7 @@ import java.util.Set;
  * Created by jt on 7/21/18.
  */
 @Service
-public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
+public class VetServiceMap extends AbstractServiceMap<Vet, Long> implements VetService {
 
     private SpecialtyService specialtyService;
 

@@ -1,7 +1,6 @@
 package info.alexhawley.petclinic2.services.map;
 
 import info.alexhawley.petclinic2.model.Pet;
-import info.alexhawley.petclinic2.services.OwnerService;
 import info.alexhawley.petclinic2.services.PetService;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +10,7 @@ import java.util.Set;
  * Created by jt on 7/21/18.
  */
 @Service
-public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
+public class PetServiceMap extends AbstractServiceMap<Pet, Long> implements PetService {
 
     public PetServiceMap() {
 
