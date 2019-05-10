@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
 @Entity
-public class Visit {
+public class Visit extends BaseEntity {
 
     @Column(name = "date")
     private LocalDate date;
