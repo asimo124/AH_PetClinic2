@@ -1,6 +1,6 @@
 package info.alexhawley.petclinic2.model;
 
-import lombok.Data;
+import lombok.*;
 import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
@@ -11,7 +11,11 @@ import java.util.Set;
  * Created by jt on 7/13/18.
  */
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+
 @Table(name = "vets")
 public class Vet extends Person {
 
@@ -19,4 +23,10 @@ public class Vet extends Person {
     @JoinTable(name = "vet_specialties", joinColumns = @JoinColumn(name = "vet_id"),
     inverseJoinColumns = @JoinColumn(name = "specialty_id"))
     private Set<Specialty> specialties = new HashSet<>();
+
+    @Builder
+    public Vet(Long id, String firstName, String lastName, Set<Specialty> specialties) {
+        super(id, firstName, lastName);
+        this.specialties = specialties;
+    }
 }

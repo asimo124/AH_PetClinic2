@@ -1,6 +1,6 @@
 package info.alexhawley.petclinic2.model;
 
-import lombok.Data;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,10 +13,19 @@ import java.util.Set;
  * Created by jt on 7/13/18.
  */
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "pet_types")
 public class PetType extends BaseEntity {
 
     @Column(name = "name")
     private String name;
+
+    @Builder
+    public PetType(Long id, String name) {
+        super(id);
+        this.name = name;
+    }
 }

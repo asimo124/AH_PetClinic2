@@ -1,14 +1,16 @@
 package info.alexhawley.petclinic2.model;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @EqualsAndHashCode(exclude = {"vets"})
 @Table(name = "specialties")
 public class Specialty extends BaseEntity {
@@ -18,4 +20,10 @@ public class Specialty extends BaseEntity {
 
     @Column(name = "description")
     private String description;
+
+    public Specialty(Long id, Set<Vet> vets, String description) {
+        super(id);
+        this.vets = vets;
+        this.description = description;
+    }
 }
